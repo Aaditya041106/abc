@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Photo Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .login-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    .login-form input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="login-form">
+      <h2>Login</h2>
+      <form id="loginForm" onsubmit="return login()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Login">
+      </form>
+    </div>
+    <div id="photoContainer" style="display: none;">
+      <h2>Photo</h2>
+      <img id="photo" src="" alt="Scaled Photo">
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      if (username === '00000' && password === '00000') {
+        document.getElementById('loginForm').reset();
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('photoContainer').style.display = 'block';
+        document.getElementById('photo').src = 'https://www.meme-arsenal.com/memes/328e034d3004f9f744e02f667d185606.jpg'; // Replace with your image link
+      } else {
+        alert('Invalid username or password');
+      }
+
+      return false; // Prevent form submission
+    }
+  </script>
+</body>
+</html>
+
